@@ -10,7 +10,8 @@ const Menu=()=>{
     const[resinfo,setresinfo]=useState(null);
     const [resmenu,setresmenu]=useState(null);
     useEffect(()=>{async function fetchmenu(){
-        const datamenu= await fetch(menuapi+id);
+      const proxy="https://cors-anywhere.herokuapp.com/"
+        const datamenu= await fetch(proxy+menuapi+id);
         const jsonm=  await datamenu.json();
         setresinfo(jsonm?.data?.cards[2]?.card?.card?.info);
         //setresmenu( jsonm?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards ||jsonm?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories[0]?.itemCards);
